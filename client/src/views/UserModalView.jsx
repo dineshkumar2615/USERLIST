@@ -21,6 +21,28 @@ const UserModalView = ({ isOpen, isEditMode, formData, errors, onClose, onChange
                         <input type="email" name="email" value={formData.email} onChange={onChange} className={errors.email ? 'error' : ''} />
                         {errors.email && <span className="error-message">{errors.email}</span>}
                     </div>
+                    <div className="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone" value={formData.phone} onChange={onChange} placeholder="Optional" />
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label>Role</label>
+                            <select name="role" value={formData.role} onChange={onChange}>
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Manager">Manager</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label>Status</label>
+                            <select name="status" value={formData.status} onChange={onChange}>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
                     <div className="modal-actions">
                         <button type="button" className="btn-cancel" onClick={onClose}>Cancel</button>
                         <button type="submit" className="btn-submit">{isEditMode ? 'Update' : 'Add'}</button>
